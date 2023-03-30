@@ -1,8 +1,8 @@
 {
   "name": "carbon-footprint-back-end",
   "version": "1.0.0",
-  "engines":{
-    "node":"18.14.0"
+  "engines": {
+    "node": "18.14.0"
   },
   "description": "",
   "main": "server.js",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/tiffanysimione/Carbon-Footprint-Back-End/issues"
   },
-  "homepage": "https://github.com/tiffanysimione/Carbon-Footprint-Back-End#readme"
+  "homepage": "https://github.com/tiffanysimione/Carbon-Footprint-Back-End#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
