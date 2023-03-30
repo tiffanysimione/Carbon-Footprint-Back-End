@@ -45,7 +45,7 @@ app.get('/carbon', (req, res)=>{
 });
 
 app.delete('/carbon/:id', (req, res)=>{
-  Carbon.findByIdAndRemove(req.params.id, (err, deletedCarbon=>{
+  Carbon.findByIdAndRemove(req.params.id, (err, deletedCarbon)=>{
       res.json(deletedCarbon);
   });
 });
