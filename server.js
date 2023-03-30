@@ -6,7 +6,9 @@ const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
 const Carbon = require('./models/carbon.js')
+const cors =require('cors')
 require('dotenv').config()
+app.use(cors())
 //___________________
 //Port
 //___________________
@@ -36,6 +38,13 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //___________________
 // Routes
 
+app.post('/carbon', (req, res)=>{
+  Carbon.create(req.body)
+  .then((createdCarbon)=>{
+      res.json(createdCarbon)
+  })
+});
+
 
 app.get('/carbon', (req, res)=>{
   Carbon.find({})
@@ -45,25 +54,25 @@ app.get('/carbon', (req, res)=>{
 });
 
 app.delete('/carbon/:id', (req, res)=>{
-  Carbon.findByIdAndRemove(req.params.id, (err, deletedCarbon)=>{
-      res.json(deletedCarbon);
-  });
+  Carbon.findByIdAndRemove(req.params.id)
+  .then((deletedCarbon)=> {
+      res.json(deletedCarbon)
+  })
+});
+
+app.put('/carbon/:id', (req, res) => {
+  Carbon.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then((updatedCarbon) => res.json(updatedCarbon))
 });
 
 
-app.put('/carbon/:id', (req, res)=>{
-  Carbon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedCarbon)=>{
-      res.json(updatedCarbon);
-  });
-});
 
 
-
-//___________________
-//localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+// //___________________
+// //localhost:3000
+// app.get('/' , (req, res) => {
+//   res.send('Hello World!');
+// });
 
 
 
