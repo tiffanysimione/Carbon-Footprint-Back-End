@@ -5,6 +5,7 @@ const express = require('express');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
+const Carbon = require('./models/carbon.js')
 require('dotenv').config()
 //___________________
 //Port
@@ -34,11 +35,37 @@ app.use(express.urlencoded({ extended: false }));// extended: false - does not a
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 //___________________
 // Routes
+
+
+app.get('/carbon', (req, res)=>{
+  Carbon.find({})
+  .then((foundCarbon) => {
+      res.json(foundCarbon)
+  })
+});
+
+app.delete('/carbon/:id', (req, res)=>{
+  Carbon.findByIdAndRemove(req.params.id, (err, deletedCarbon=>{
+      res.json(deletedCarbon);
+  });
+});
+
+
+app.put('/carbon/:id', (req, res)=>{
+  Carbon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedCarbon)=>{
+      res.json(updatedCarbon);
+  });
+});
+
+
+
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
   res.send('Hello World!');
 });
+
+
 
 //___________________
 //Listener
