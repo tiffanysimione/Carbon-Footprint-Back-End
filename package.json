@@ -1,0 +1,23 @@
+{
+  "name": "carbon-footprint-back-end",
+  "version": "1.0.0",
+  "engines":{
+    "node":"18.14.0"
+  },
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiffanysimione/Carbon-Footprint-Back-End.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiffanysimione/Carbon-Footprint-Back-End/issues"
+  },
+  "homepage": "https://github.com/tiffanysimione/Carbon-Footprint-Back-End#readme"
+}
