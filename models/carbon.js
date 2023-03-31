@@ -7,7 +7,9 @@ monthlyOil: Number,
 yearlyMileage: Number,
 shortflights: Number,
 longFlights: Number,
-carbonTotal: Number
+carbonTotal: Number,
+recycleNewspaper: Boolean,
+recycleAluminum: Boolean
 });
 
 const Carbon = mongoose.model('Carbon', carbonSchema);
