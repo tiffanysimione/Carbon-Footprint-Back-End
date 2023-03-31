@@ -1,15 +1,15 @@
-const mongoose =require('mongoose');
+const mongoose = require('mongoose');
 
 const carbonSchema = new mongoose.Schema({
-monthlyBill:Number,
-monthlyGas:Number,
-monthlyOil:Number,
-yearlyMileage:Number,
-shortflights:Number,
-longFlights:Number
-
+monthlyBill: Number,
+monthlyGas: Number,
+monthlyOil: Number,
+yearlyMileage: Number,
+shortflights: Number,
+longFlights: Number,
+carbonTotal: Number
 });
 
-const Carbon =mongoose.model('Carbon', carbonSchema);
+const Carbon = mongoose.model('Carbon', carbonSchema);
 
 module.exports = Carbon;
