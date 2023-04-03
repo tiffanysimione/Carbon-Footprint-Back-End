@@ -46,6 +46,12 @@ app.post('/carbon', (req, res)=>{
 });
 
 
+app.get('/new-page', (req, res) => {
+  res.send('This is a new page');
+});
+
+
+
 app.get('/carbon', (req, res)=>{
   Carbon.find({})
   .then((foundCarbon) => {
